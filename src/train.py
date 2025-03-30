@@ -10,7 +10,7 @@ import pickle
 
 
 # Load MLflow config from YAML
-with open("../mlflow_config.yaml", "r") as f:
+with open("mlflow_config.yaml", "r") as f:
     config = yaml.safe_load(f)
 
 train = pd.read_csv("train.csv")
@@ -18,6 +18,7 @@ test = pd.read_csv("test.csv")
 
 X_train, y_train = train.drop(columns=["Outcome"]), train["Outcome"]
 X_test, y_test = test.drop(columns=["Outcome"]), test["Outcome"]
+print("hello")
 
 # Enable MLflow Tracking
 # Set MLflow tracking URI

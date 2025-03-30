@@ -4,7 +4,7 @@ import pandas as pd
 
 app = FastAPI()
 
-model = pickle.load(open("models/model.pkl", "rb"))
+model = pickle.load(open("model.pkl", "rb"))
 
 @app.post("/predict/")
 def predict(data: dict):
