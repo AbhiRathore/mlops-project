@@ -1,0 +1,30 @@
+name: MLOps CI/CD
+
+on: [push]
+
+jobs:
+  train_model:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v3
+        with:
+          python-version: 3.8
+
+      - name: Install Dependencies
+        run: pip install -r requirements.txt
+
+      - name: Preprocess Data
+        run: python src/data_preprocessing.py
+
+      - name: Train Model and Log in MLflow
+        run: python src/train.py
+
+      - name: Commit Model
+        run: |
+          git add models/
+          git commit -m "Updated model"
+          git push origin main
