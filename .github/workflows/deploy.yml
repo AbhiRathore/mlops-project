@@ -16,4 +16,4 @@ jobs:
         run: docker build -t mlops-model .
 
       - name: Run API
-        run: docker run -d -p 8000:8000 mlops-model
+        run: docker run -p 8000:8000 mlops-model
